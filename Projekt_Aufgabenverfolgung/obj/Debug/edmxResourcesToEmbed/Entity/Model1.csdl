@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbAuftragsverfolgungModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TblAbteilungen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblPersonal" Relationship="Self.FK_TblPersonal_TblAbteilungen" FromRole="TblAbteilungen" ToRole="TblPersonal" />
+  </EntityType>
+  <EntityType Name="TblAdmin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Benutzername" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Passwort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblAufgaben">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aufgabengeber" Type="Int32" />
+    <Property Name="Aufgabennehmer" Type="Int32" />
+    <Property Name="Kommentar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Datum" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TblPersonal" Relationship="Self.FK_TblAufgaben_TblPersonal" FromRole="TblAufgaben" ToRole="TblPersonal" />
+    <NavigationProperty Name="TblPersonal1" Relationship="Self.FK_TblAufgaben_TblPersonal1" FromRole="TblAufgaben" ToRole="TblPersonal" />
+    <NavigationProperty Name="TblAufgabendetails" Relationship="Self.FK_TblAufgabendetails_TblAufgaben" FromRole="TblAufgaben" ToRole="TblAufgabendetails" />
+  </EntityType>
+  <EntityType Name="TblAufgabendetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aufgabe" Type="Int32" />
+    <Property Name="Kommentar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Datum" Type="DateTime" Precision="0" />
+    <Property Name="Uhr" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="TblAufgaben" Relationship="Self.FK_TblAufgabendetails_TblAufgaben" FromRole="TblAufgabendetails" ToRole="TblAufgaben" />
+  </EntityType>
+  <EntityType Name="TblFirmen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BerechtigtePerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelNummer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sektor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Stadt" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblPersonal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vorname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelNummer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bild" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Abteilung" Type="Int32" />
+    <NavigationProperty Name="TblAbteilungen" Relationship="Self.FK_TblPersonal_TblAbteilungen" FromRole="TblPersonal" ToRole="TblAbteilungen" />
+    <NavigationProperty Name="TblAufgaben" Relationship="Self.FK_TblAufgaben_TblPersonal" FromRole="TblPersonal" ToRole="TblAufgaben" />
+    <NavigationProperty Name="TblAufgaben1" Relationship="Self.FK_TblAufgaben_TblPersonal1" FromRole="TblPersonal" ToRole="TblAufgaben" />
+    <Property Name="Statu" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_TblPersonal_TblAbteilungen">
+    <End Role="TblAbteilungen" Type="Self.TblAbteilungen" Multiplicity="0..1" />
+    <End Role="TblPersonal" Type="Self.TblPersonal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblAbteilungen">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblPersonal">
+        <PropertyRef Name="Abteilung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblAufgaben_TblPersonal">
+    <End Role="TblPersonal" Type="Self.TblPersonal" Multiplicity="0..1" />
+    <End Role="TblAufgaben" Type="Self.TblAufgaben" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPersonal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblAufgaben">
+        <PropertyRef Name="Aufgabengeber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblAufgaben_TblPersonal1">
+    <End Role="TblPersonal" Type="Self.TblPersonal" Multiplicity="0..1" />
+    <End Role="TblAufgaben" Type="Self.TblAufgaben" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPersonal">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblAufgaben">
+        <PropertyRef Name="Aufgabennehmer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblAufgabendetails_TblAufgaben">
+    <End Role="TblAufgaben" Type="Self.TblAufgaben" Multiplicity="0..1" />
+    <End Role="TblAufgabendetails" Type="Self.TblAufgabendetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblAufgaben">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblAufgabendetails">
+        <PropertyRef Name="Aufgabe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbAuftragsverfolgungEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TblAbteilungen" EntityType="Self.TblAbteilungen" />
+    <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" />
+    <EntitySet Name="TblAufgaben" EntityType="Self.TblAufgaben" />
+    <EntitySet Name="TblAufgabendetails" EntityType="Self.TblAufgabendetails" />
+    <EntitySet Name="TblFirmen" EntityType="Self.TblFirmen" />
+    <EntitySet Name="TblPersonal" EntityType="Self.TblPersonal" />
+    <AssociationSet Name="FK_TblPersonal_TblAbteilungen" Association="Self.FK_TblPersonal_TblAbteilungen">
+      <End Role="TblAbteilungen" EntitySet="TblAbteilungen" />
+      <End Role="TblPersonal" EntitySet="TblPersonal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblAufgaben_TblPersonal" Association="Self.FK_TblAufgaben_TblPersonal">
+      <End Role="TblPersonal" EntitySet="TblPersonal" />
+      <End Role="TblAufgaben" EntitySet="TblAufgaben" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblAufgaben_TblPersonal1" Association="Self.FK_TblAufgaben_TblPersonal1">
+      <End Role="TblPersonal" EntitySet="TblPersonal" />
+      <End Role="TblAufgaben" EntitySet="TblAufgaben" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblAufgabendetails_TblAufgaben" Association="Self.FK_TblAufgabendetails_TblAufgaben">
+      <End Role="TblAufgaben" EntitySet="TblAufgaben" />
+      <End Role="TblAufgabendetails" EntitySet="TblAufgabendetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
