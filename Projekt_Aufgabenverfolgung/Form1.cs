@@ -23,8 +23,10 @@ namespace Projekt_Aufgabenverfolgung
         }
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
+        {//personelistatistik buton
+            Formen.FrmPersonalstatistik frm3 = new Formen.FrmPersonalstatistik();
+            frm3.MdiParent = this;
+            frm3.Show();
         }
 
         private void btnAbteilungenlistesi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

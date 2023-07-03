@@ -40,7 +40,7 @@ namespace Projekt_Aufgabenverfolgung
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.BtnPersonel = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPersonelstatistik = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
@@ -95,7 +95,7 @@ namespace Projekt_Aufgabenverfolgung
             this.barButtonItem6,
             this.BtnPersonel,
             this.barButtonItem8,
-            this.barButtonItem9,
+            this.btnPersonelstatistik,
             this.barButtonItem10,
             this.barButtonItem11,
             this.barButtonItem12,
@@ -191,14 +191,14 @@ namespace Projekt_Aufgabenverfolgung
             this.barButtonItem8.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.LargeImage")));
             this.barButtonItem8.Name = "barButtonItem8";
             // 
-            // barButtonItem9
+            // btnPersonelstatistik
             // 
-            this.barButtonItem9.Caption = "Personalstatistiken";
-            this.barButtonItem9.Id = 12;
-            this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
-            this.barButtonItem9.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.LargeImage")));
-            this.barButtonItem9.Name = "barButtonItem9";
-            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
+            this.btnPersonelstatistik.Caption = "Personalstatistiken";
+            this.btnPersonelstatistik.Id = 12;
+            this.btnPersonelstatistik.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
+            this.btnPersonelstatistik.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.LargeImage")));
+            this.btnPersonelstatistik.Name = "btnPersonelstatistik";
+            this.btnPersonelstatistik.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
             // 
             // barButtonItem10
             // 
@@ -379,7 +379,7 @@ namespace Projekt_Aufgabenverfolgung
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.BtnPersonel);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnPersonelstatistik);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
             // ribbonPage4
@@ -498,7 +498,7 @@ namespace Projekt_Aufgabenverfolgung
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem BtnPersonel;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem btnPersonelstatistik;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;

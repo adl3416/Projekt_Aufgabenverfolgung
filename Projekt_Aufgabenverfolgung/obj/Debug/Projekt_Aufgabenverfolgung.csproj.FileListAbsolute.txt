@@ -98,3 +98,4 @@ C:\Users\makar\source\repos\Projekt_Aufgabenverfolgung\Projekt_Aufgabenverfolgun
 C:\Users\makar\source\repos\Projekt_Aufgabenverfolgung\Projekt_Aufgabenverfolgung\bin\Debug\EntityFramework.xml
 C:\Users\makar\source\repos\Projekt_Aufgabenverfolgung\Projekt_Aufgabenverfolgung\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\makar\source\repos\Projekt_Aufgabenverfolgung\Projekt_Aufgabenverfolgung\obj\Debug\Projekt_Aufgabenverfolgung.Formen.frmPersonal.resources
+C:\Users\makar\source\repos\Projekt_Aufgabenverfolgung\Projekt_Aufgabenverfolgung\obj\Debug\Projekt_Aufgabenverfolgung.Formen.FrmPersonalstatistik.resources

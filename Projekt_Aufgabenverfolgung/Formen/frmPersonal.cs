@@ -104,7 +104,7 @@ namespace Projekt_Aufgabenverfolgung.Formen
             TxtName.Text = gridView1.GetFocusedRowCellValue("Name").ToString();
             TxtMail.Text = gridView1.GetFocusedRowCellValue("Mail").ToString();
             //TxtBild.Text = gridView1.GetFocusedRowCellValue("Bild").ToString();
-             //lookUpEdit1.EditValue = gridView1.GetFocusedRowCellValue("departman").ToString();
+             lookUpEdit1.Text = gridView1.GetFocusedRowCellValue("departman").ToString();
 
         }
 
@@ -118,7 +118,7 @@ namespace Projekt_Aufgabenverfolgung.Formen
             deger.Bild=TxtBild.Text; 
             deger.Abteilung=int.Parse(lookUpEdit1.EditValue.ToString());
             db.SaveChanges();
-            XtraMessageBox.Show("Das Personal wurde erfolgreich aktualisiert ",
+            XtraMessageBox.Show("Das Personal wurde erfolgreich aktualisiert.",
                 "Info", MessageBoxButtons.OK, MessageBoxIcon.Question);
             personeller();
 
